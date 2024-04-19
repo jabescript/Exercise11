@@ -1,0 +1,125 @@
+﻿@model IEnumerable<PropertyViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SummaryDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DetailDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarSpace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfBedroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfBathroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FloorArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LandSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrokerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrokerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrokerPhone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SummaryDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetailDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarSpace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfBedroom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfBathroom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FloorArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LandSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrokerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrokerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrokerPhone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PropertyId">Edit</a>
+                |
+                <a asp-action="Details" asp-route-id="@item.PropertyId">Details</a> 
+                |
+                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@("#DeleteProduct-"+item.PropertyId)" data-url="@Url.Action($"Delete/{item.PropertyId}")">Delete</a>
+                @await Html.PartialAsync("_DeletePropertyPartialView", item)
+
+                @* <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@("#DeleteProduct-" + item.PropertyId)" data-url="@Url.Action($"Delete/{item.PropertyId}")">Delete</button> *@
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

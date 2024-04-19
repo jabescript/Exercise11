@@ -1,0 +1,6 @@
+@Exercise11API_HostAddress = http://localhost:44353
+
+GET {{Exercise11API_HostAddress}}/api/properties
+Accept: application/json
+
+###

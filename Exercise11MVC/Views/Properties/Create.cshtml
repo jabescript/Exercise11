@@ -1,0 +1,103 @@
+﻿@model PropertyViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Property</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" method="post" asp-controller="Properties" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" min="1000" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SummaryDescription" class="control-label"></label>
+                <input asp-for="SummaryDescription" class="form-control" />
+                <span asp-validation-for="SummaryDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DetailDescription" class="control-label"></label>
+                <input asp-for="DetailDescription" class="form-control" />
+                <span asp-validation-for="DetailDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PropertyCategory" class="control-label"></label>
+                <input asp-for="PropertyCategory" class="form-control" />
+                <span asp-validation-for="PropertyCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarSpace" class="control-label"></label>
+                <input asp-for="CarSpace" class="form-control" />
+                <span asp-validation-for="CarSpace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfBedroom" class="control-label"></label>
+                <input asp-for="NumberOfBedroom" class="form-control" />
+                <span asp-validation-for="NumberOfBedroom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfBathroom" class="control-label"></label>
+                <input asp-for="NumberOfBathroom" class="form-control" />
+                <span asp-validation-for="NumberOfBathroom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FloorArea" class="control-label"></label>
+                <input asp-for="FloorArea" class="form-control" />
+                <span asp-validation-for="FloorArea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LandSize" class="control-label"></label>
+                <input asp-for="LandSize" class="form-control" />
+                <span asp-validation-for="LandSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input type="file" name="file" accept=".jpg, .png" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrokerName" class="control-label"></label>
+                <input asp-for="BrokerName" class="form-control" />
+                <span asp-validation-for="BrokerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrokerEmail" class="control-label"></label>
+                <input asp-for="BrokerEmail" class="form-control" />
+                <span asp-validation-for="BrokerEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrokerPhone" class="control-label"></label>
+                <input asp-for="BrokerPhone" class="form-control" />
+                <span asp-validation-for="BrokerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

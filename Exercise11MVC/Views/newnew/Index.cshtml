@@ -1,0 +1,10 @@
+﻿@model PropertyListViewModel
+
+<h1>@Model.Properties</h1>
+<a asp-controller="Properties" asp-action="Create" class="btn btn-primary fw-bold">Add New Property</a>
+<div class="row row-cols-1">
+    @foreach (var property in Model.Properties)
+    {
+        <partial name="_PropertyCard" model="property" />
+    }
+</div>

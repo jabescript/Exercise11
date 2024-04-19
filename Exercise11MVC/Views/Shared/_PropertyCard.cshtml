@@ -1,0 +1,33 @@
+﻿@model PropertyViewModel
+@using System.Globalization
+
+@{
+    CultureInfo cultureInfo = new CultureInfo("en-PH");
+    string formattedPrice = Model.Price.ToString("C0", cultureInfo);
+}
+
+<div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="card">
+        <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Title" />
+        @* <div class="card-body pie-button"> *@
+        <div class="card-body">
+            <h3>@formattedPrice</h3>
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text">@Model.SummaryDescription</p>
+            <div class="row">
+                <div class="col">
+                    <span class="material-symbols-outlined">
+                        floor
+                    </span>@Model.FloorArea sq ft.
+                </div>
+                <div class="col">
+                    <span class="material-symbols-outlined">
+                        stay_current_landscape
+                    </span>@Model.LandSize sq ft.(lot)
+                </div>
+            </div>
+            <p>@Model.Location</p>
+                <a asp-controller="Properties" asp-action="Details" asp-route-id="@Model.PropertyId" class="btn btn-primary fw-bold col-12">View More Details</a>
+        </div>
+    </div>
+</div>
