@@ -6,6 +6,7 @@ public class StorageService : IStorageService
 {
     private readonly string _storageConnectionString;
     private readonly string _storageContainerName;
+    private readonly ILogger _logger;
 
     public StorageService(IConfiguration configuration)
     {
